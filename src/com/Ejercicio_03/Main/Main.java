@@ -47,13 +47,17 @@ public class Main {
         // Alumno a buscar
         System.out.println("Ingrese el nombre del alumno para obtener su nota final:");
         aux = sc.nextLine();
+        boolean encontrado = false;
 
         // Foreach para buscar el alumno
         for (Alumno alumno : alumnos) {
             if (aux.equalsIgnoreCase(alumno.getNombre())) {
                 System.out.println("La nota final de " + alumno.getNombre() + " es: " + service.notaFinal(alumno));
+                encontrado = true;
                 break;
             }
         }
+
+        if(!encontrado) System.out.println("El alumno no fue encontrado");
     }
 }
